@@ -110,13 +110,10 @@
 }
 
 @font-face {
-  font-family: 'GmarketSansMedium';
-
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-
-  font-weight: normal;
-
-  font-style: normal;
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 html > body ul,
@@ -127,7 +124,7 @@ html > body li {
 }
 
 html > body {
-  font-family: "GmarketSansMedium";
+  font-family: "ONE-Mobile-POP";
   text-underline-position: under;
 }
 
