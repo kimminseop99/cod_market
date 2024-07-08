@@ -9,3 +9,7 @@ html > body {
   font-family: "ONE-Mobile-POP";
   text-underline-position: under;
 }
+
+.collapse{
+    visibility: visible !important;
+}
