@@ -26,7 +26,7 @@ public class SecurityConfig {
                     .loginPage("/member/login")
                     .defaultSuccessUrl("/"))
                 .logout((logout) -> logout
-                        .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout")) //logout시 어디로 보낼껀지
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
                         .logoutSuccessUrl("/")
                         .invalidateHttpSession(true))
                 ;
