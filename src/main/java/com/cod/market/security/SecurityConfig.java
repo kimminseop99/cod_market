@@ -23,9 +23,13 @@ public class SecurityConfig {
                 .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
                         .requestMatchers(new AntPathRequestMatcher("/**")).permitAll())
                 .formLogin((formLogin) -> formLogin
-                .loginPage("/member/login")
-                .defaultSuccessUrl("/"))
-        ;
+                    .loginPage("/member/login")
+                    .defaultSuccessUrl("/"))
+                .logout((logout) -> logout
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/member/logout")) //logout시 어디로 보낼껀지
+                        .logoutSuccessUrl("/")
+                        .invalidateHttpSession(true))
+                ;
         return http.build();
     }
 
