@@ -5,15 +5,16 @@ import com.cod.market.member.entity.Member;
 import com.cod.market.question.entity.Question;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Answer extends BaseEntity {
 
     private String comment;
 
-    @OneToMany
+    @OneToOne
     private Member member;
 
-    @OneToMany
+    @OneToOne
     private Question question;
 }
