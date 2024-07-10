@@ -1,6 +1,8 @@
 package com.cod.market.product.entity;
 
 import com.cod.market.base.BaseEntity;
+import com.cod.market.market.entity.Market;
+import com.cod.market.question.entity.Question;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,6 +13,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,6 +21,12 @@ import java.time.LocalDateTime;
 public class Product extends BaseEntity {
 
     private String name;
+    private String description;
     private int price;
+    private int hitCount;
+    private boolean isActive;
+
+    private List<Question> questionList;
+    private Market market;
 
 }
