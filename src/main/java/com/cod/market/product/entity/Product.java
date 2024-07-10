@@ -21,7 +21,7 @@ public class Product extends BaseEntity {
     private String description;
     private int price;
     private int hitCount;
-    private boolean isActive;
+    private String isActive;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
     private List<Question> questionList;

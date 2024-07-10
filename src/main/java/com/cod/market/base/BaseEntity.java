@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Setter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class BaseEntity {
+public class BaseEntity{
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private long id;

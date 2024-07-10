@@ -9,12 +9,10 @@ import jakarta.persistence.OneToOne;
 
 @Entity
 public class Answer extends BaseEntity {
-
     private String comment;
 
     @OneToOne
     private Member member;
-
     @OneToOne
     private Question question;
 }
