@@ -1,5 +1,6 @@
 package com.cod.market.member.entity;
 
+import com.cod.market.base.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,18 +16,12 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-public class Member {
-    @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private long id;
+public class Member extends BaseEntity {
+
     private String username;
     private String password;
     private String nickname;
     private String email;
 
-    @CreatedDate
-    private LocalDateTime createDate;
 
-    @LastModifiedDate
-    private  LocalDateTime modifyDate;
 }
