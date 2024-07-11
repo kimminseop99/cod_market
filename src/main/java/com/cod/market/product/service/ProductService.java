@@ -2,7 +2,6 @@ package com.cod.market.product.service;
 
 import com.cod.market.product.entity.Product;
 import com.cod.market.product.repository.ProductRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +12,9 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class ProductService {
-
     private final ProductRepository productRepository;
+
+
     public List<Product> getList() {
         return productRepository.findAll();
     }
@@ -30,10 +30,10 @@ public class ProductService {
     public Product getProduct(Long id) {
         Optional<Product> product = productRepository.findById(id);
 
-
+        if (product.isPresent()) {
             return product.get();
-
-
-        // TODO: 없을 경우 예외처리 예정
+        } else {
+            throw new RuntimeException("product not found");
+        }
     }
 }
