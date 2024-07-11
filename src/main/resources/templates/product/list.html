@@ -6,7 +6,7 @@
         <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[20px] mt-3">
             <li th:each="product, loop : ${paging}" class="flex flex-col">
                 <a th:href="@{|/product/detail/${product.id}|}" data-before="VIEW MORE">
-                    <img class="block w-full" src="https://i.imgur.com/PVsCFy1.png" alt="">
+                    <img class="block w-full" src="https://i.namu.wiki/i/nzx9rsBWWvU_Wdje9BoBrMd8K9VrruhZe_0Ggc706EJ81rIZ-zzlYGfdwCQ32sJUOF8lWCs_kDZoy5NDA-6f-gj75rTgjfg11RmyhasLKHpedaC7Anuw9gkCCg3qPYxIpumBvm9AE1NvZD4aBKkJbw.webp" alt="">
                 </a>
                 <a th:href="@{|/product/detail/${product.id}|}" th:text="${product.name}" class="text-center mt-2"></a>
                 <a th:href="@{|/product/detail/${product.id}|}" th:text="${product.price}+원" class="text-center mt-2"></a>
@@ -41,21 +41,20 @@
         </form>
     </div>
     <script layout:fragment="script" type="text/javascript">
-        const page_elements = document.getElementsByClassName('page-link');
+        $(document).ready(function() {
+       // .page-link 클래스를 가진 모든 요소에 클릭 이벤트 리스너 추가
+       $('.page-link').on('click', function() {
+           $('#page').val($(this).data('page')); // 클릭된 요소의 data-page 값을 page 입력 요소에 설정
+           $('#searchForm').submit(); // searchForm 폼 제출
+       });
 
-        Array.from(page_elements).forEach(function(element) {
-            element.addEventListener('click', function() {
-                document.getElementById('page').value = this.dataset.page;
-                document.getElementById('searchForm').submit();
-            });
-        });
-
-        const btn_search = document.getElementById('btn_search');
-        btn_search.addEventListener('click', function() {
-        document.getElementById('kw').value = document.getElementById('search_kw').value;
-            document.getElementById('page').value = 0;
-            document.getElementById('searchForm').submit();
-        });
+       // btn_search 요소에 클릭 이벤트 리스너 추가
+       $('#btn_search').on('click', function() {
+           $('#kw').val($('#search_kw').val()); // search_kw 입력 요소의 값을 kw 입력 요소에 설정
+           $('#page').val(0); // 페이지 값을 0으로 설정하여 첫 페이지부터 조회하도록 함
+           $('#searchForm').submit(); // searchForm 폼 제출
+       });
+   });
     </script>
 </section>
 </html>
