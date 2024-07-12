@@ -17,12 +17,12 @@ public class CartService {
     private final CartRepository cartRepository;
 
     public void add(Product product, Member member) {
-        Cart cart = new Cart();
-        cart.setProduct(product);
-        cart.setMember(member);
-        cart.setCreateDate(LocalDateTime.now());
+        Cart c = Cart.builder()
+                .product(product)
+                .member(member)
+                .build();
 
-        cartRepository.save(cart);
+        cartRepository.save(c);
     }
 
     public List<Cart> getList(Member member) {
