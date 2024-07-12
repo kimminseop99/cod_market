@@ -7,17 +7,31 @@
 
 html > body ul,
 html > body li {
-  margin:0;
-  padding:0;
-  list-style:none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 html > body {
-  font-family: "ONE-Mobile-POP";
-  text-underline-position: under;
+    font-family: "ONE-Mobile-POP";
+    text-underline-position: under;
 }
 
-.collapse{
+.collapse {
     visibility: visible !important;
 }
 
+
+.page-item.active .page-link {
+    background-color: transparent;
+    color: #222;
+    text-decoration: underline;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.page-link {
+    color: #1E3A8A;
+    border: none;
+    opacity: .7;
+}
