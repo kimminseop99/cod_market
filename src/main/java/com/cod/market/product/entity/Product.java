@@ -27,6 +27,7 @@ public class Product extends BaseEntity {
     private int price;
     private int hitCount;
     private String isActive;
+    private String thumbnailImg;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
     private List<Question> questionList;
