@@ -2,7 +2,6 @@ package com.cod.market.product.service;
 
 import com.cod.market.product.entity.Product;
 import com.cod.market.product.repository.ProductRepository;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -25,8 +24,7 @@ import java.util.UUID;
 public class ProductService {
     private final ProductRepository productRepository;
     @Value("${custom.genFileDirPath}")
-    public String genFileDirPath;
-
+    private String genFileDirPath;
 
     public Page<Product> getList(int page, String kw) {
         List<Sort.Order> sorts = new ArrayList<>();
@@ -37,11 +35,14 @@ public class ProductService {
     }
 
     public void create(String name, String description, int price, MultipartFile thumbnail) {
-        String thumbnailRelPath = genFileDirPath;
+        String thumbnailRelPath = "product/" + UUID.randomUUID().toString() + ".jpg";
+        File thumbnailFile = new File(genFileDirPath + "/" + thumbnailRelPath);
+
+        thumbnailFile.mkdir();
 
         try {
-            thumbnail.transferTo(new File(genFileDirPath + "/" + UUID.randomUUID().toString() + ".jpg"));
-        }catch (IOException e){
+            thumbnail.transferTo(thumbnailFile);
+        } catch ( IOException e) {
             throw new RuntimeException(e);
         }
 
@@ -62,5 +63,9 @@ public class ProductService {
         } else {
             throw new RuntimeException("product not found");
         }
+    }
+
+    public List<Product> getList() {
+        return productRepository.findAll();
     }
 }
