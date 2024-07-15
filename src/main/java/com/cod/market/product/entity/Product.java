@@ -5,9 +5,7 @@ import com.cod.market.cart.entity.Cart;
 import com.cod.market.market.entity.Market;
 import com.cod.market.question.entity.Question;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -20,6 +18,8 @@ import java.util.List;
 @Setter
 @ToString
 @SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product extends BaseEntity {
 
     private String name;

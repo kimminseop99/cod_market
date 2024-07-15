@@ -1,7 +1,9 @@
 package com.cod.market.base;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
@@ -15,6 +17,8 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @SuperBuilder(toBuilder = true) // 부모빌더는 추가적인 로직이 붙는다.
+@AllArgsConstructor
+@NoArgsConstructor
 public class BaseEntity{
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
