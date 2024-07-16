@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Product extends BaseEntity {
 
-    private String name;
+    private String title;
     private String description;
     private int price;
     private int hitCount;
