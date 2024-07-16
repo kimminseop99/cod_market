@@ -32,7 +32,7 @@ public class MemberService {
     public Member findByUserName(String username) {
         Optional<Member> member = memberRepository.findByUsername(username);
 
-        if ( member.isPresent() ) {
+        if (member.isPresent()) {
             return member.get();
         } else {
             throw new RuntimeException("member not found");
