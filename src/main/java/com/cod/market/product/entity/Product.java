@@ -1,17 +1,13 @@
 package com.cod.market.product.entity;
 
-import com.cod.market.base.BaseEntity;
+import com.cod.market.base.entity.BaseEntity;
 import com.cod.market.cart.entity.Cart;
-import com.cod.market.market.entity.Market;
 import com.cod.market.member.entity.Member;
 import com.cod.market.question.entity.Question;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
