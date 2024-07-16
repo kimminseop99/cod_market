@@ -3,6 +3,7 @@ package com.cod.market.product.entity;
 import com.cod.market.base.BaseEntity;
 import com.cod.market.cart.entity.Cart;
 import com.cod.market.market.entity.Market;
+import com.cod.market.member.entity.Member;
 import com.cod.market.question.entity.Question;
 import jakarta.persistence.*;
 import lombok.*;
@@ -36,6 +37,6 @@ public class Product extends BaseEntity {
     private List<Cart> cartList;
 
     @ManyToOne
-    private Market market;
+    private Member member;
 
 }

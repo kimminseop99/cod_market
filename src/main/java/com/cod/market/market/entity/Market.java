@@ -21,9 +21,4 @@ public class Market extends BaseEntity {
 
     private String info;
 
-    @OneToOne
-    private Member member;
-
-    @OneToMany(mappedBy = "market", cascade = CascadeType.REMOVE)
-    private List<Product> productList;
 }
