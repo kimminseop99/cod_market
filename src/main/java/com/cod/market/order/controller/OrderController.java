@@ -23,7 +23,12 @@ import java.util.Base64;
 public class OrderController {
     @Value("${custom.paymentSecretKey}")
     private String paymentSecretKey;
-    @GetMapping("success")
+
+    @GetMapping("/detail")
+    public String detail(){
+        return "order/detail";
+    }
+    @GetMapping("/success")
     public String paymentResult(
             Model model,
             @RequestParam(value = "orderId") String orderId,
@@ -82,7 +87,7 @@ public class OrderController {
         return "order/success";
     }
 
-    @GetMapping("fail")
+    @GetMapping("/fail")
     public String paymentResult(
             Model model,
             @RequestParam(value = "message") String message,
