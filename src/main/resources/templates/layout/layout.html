@@ -21,8 +21,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
 
-    <!--폰트어썸-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--    폰트어썸-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body class="flex flex-col min-h-screen pt-[56px]">
@@ -49,6 +49,10 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" sec:authorize="isAuthenticated()" href="/cart/list">장바구니</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/member/login}">로그인</a>
                         <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/member/logout}">로그아웃</a>
                     </li>
@@ -58,13 +62,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" sec:authorize="isAnonymous()" href="/cart/list">장바구니</a>
-                    </li>
-
-                    <li class="nav-item">
                         <a class="nav-link" sec:authorize="hasAuthority('ADMIN')" href="/adm">관리자 홈</a>
                     </li>
-
                 </ul>
                 <div class="text-white mr-5 mb-3 md:!mb-0" sec:authorize="isAuthenticated()" th:text="@{|${#authentication.name}님|}"></div>
                 <form class="d-flex">
